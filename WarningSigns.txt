@@ -1,0 +1,6 @@
+Symptom,WarningSign,CopingStrategy,PeoplePlaces,GroundingTools
+depresssion,sluggish- oversleeping- napping too much- not eating- suicidal thoughts,shower - brush teeth - play video games - eat,mary,Call friends
+mania,fast thoughts-innability to sleep- aggitated easier- pain,shower- take medication as prescribed- take dog for walk- eat- brush teeth- clean clothes,mary- grandparents- friends,I need to clean this sty
+
+test,test,test,test,test
+testttttt,tttttt,tttttttttttt,tttttt,hmmmm
