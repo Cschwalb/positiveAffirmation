@@ -1,5 +1,6 @@
 import csv
 from pathlib import Path
+from win10toast import ToastNotifier
 
 warnings = []
 class CwarningSign:
@@ -76,15 +77,24 @@ def writeToFile(sFile, warningSign):
     path = Path(f"./{sFile}")
     print(path)
     with open(path, mode="a") as file:
-        num = file.write(warningSign.writeString())
-        print(num)
+        file.write(warningSign.writeString())
     file.close()
 
 
 if __name__ == '__main__':
     parseFile("WarningSigns.txt")
+    toast = ToastNotifier()
     for warn in warnings:
-        print(f"Symptom:  {warn.Symptom}  Warning Sign: {warn.WarningSign} Coping Strategy:  {warn.CopingStrategy}  People/Places:  {warn.PeoplePlaces} Ground Tools:  {warn.Grounding}")
+        print(f"Symptom:   {warn.Symptom}  Warning Sign: {warn.WarningSign} Coping Strategy:  {warn.CopingStrategy}  People/Places:  {warn.PeoplePlaces} Ground Tools:  {warn.Grounding}")
+        stringToPrint = "Symptom:  " + warn.Symptom + "  Warning Sign: " + warn.WarningSign+ " Coping Strategy:  " + warn.CopingStrategy + "  People/Places:  "+warn.PeoplePlaces+" Ground Tools:  " + warn.Grounding
+
+        toast.show_toast(
+            "Warning Signs and coping methods",
+            stringToPrint,
+            icon_path=None,
+            duration=20,
+            threaded=False
+        )
     inp = input("Would you like to enter a warning sign?  ").lower()
     if inp == 'yes':
         askForInput("WarningSigns.txt")
